@@ -22,22 +22,27 @@ dp = Dispatcher()
 
 # 📌 Главное меню
 main_menu = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton("📌 Написать напоминание")],
+        [KeyboardButton("Управление напоминаниями")]
+    ],
     resize_keyboard=True
 )
-main_menu.add(KeyboardButton("📌 Написать напоминание"))
-main_menu.add(KeyboardButton("Управление напоминаниями"))
 
 # 📌 Кнопки при получении напоминания
 read_button = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton("✅ Прочитано")]
+    ],
     resize_keyboard=True
 )
-read_button.add(KeyboardButton("✅ Прочитано"))
 
 repeat_menu = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton("Повторять"), KeyboardButton("Меню")]
+    ],
     resize_keyboard=True
 )
-repeat_menu.add(KeyboardButton("Повторять"))
-repeat_menu.add(KeyboardButton("Меню"))
 
 # 📌 Хранилище временных данных
 user_data = {}
