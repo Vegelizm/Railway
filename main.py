@@ -11,28 +11,22 @@ dp = Dispatcher()
 
 # Главное меню
 main_menu = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton("📌 Написать напоминание")],
-        [KeyboardButton("Управление напоминаниями")]
-    ],
     resize_keyboard=True
 )
+main_menu.add(KeyboardButton("📌 Написать напоминание"))
+main_menu.add(KeyboardButton("Управление напоминаниями"))
 
 # Кнопки для подтверждения прочтения
 read_button = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton("✅ Прочитано")]
-    ],
     resize_keyboard=True
 )
+read_button.add(KeyboardButton("✅ Прочитано"))
 
 # Кнопка для повторения напоминания
 repeat_menu = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton("Повторять"), KeyboardButton("Меню")]
-    ],
     resize_keyboard=True
 )
+repeat_menu.add(KeyboardButton("Повторять"), KeyboardButton("Меню"))
 
 # Пример команды /start
 @dp.message(commands=["start"])
