@@ -3,7 +3,7 @@ import asyncio
 import os
 from aiogram import Bot, Dispatcher, types
 from aiogram.enums import ParseMode
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, DefaultBotProperties
 from datetime import datetime
 import logging
 
@@ -16,8 +16,8 @@ TOKEN = os.getenv("BOT_TOKEN")
 if not TOKEN:
     raise ValueError("❌ Ошибка: Токен бота не найден! Убедитесь, что BOT_TOKEN задан в переменных окружения.")
 
-# 📌 Инициализация бота и диспетчера
-bot = Bot(token=TOKEN, parse_mode=ParseMode.HTML)
+# 📌 Инициализация бота и диспетчера с использованием DefaultBotProperties
+bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
 
 # 📌 Главное меню
@@ -41,7 +41,7 @@ DB_FILE = "reminders.db"
 # 📌 Создание БД
 async def setup_database():
     async with aiosqlite.connect(DB_FILE) as db:
-        await db.execute("""
+        await db.execute(""" 
             CREATE TABLE IF NOT EXISTS reminders (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 user_id INTEGER,
