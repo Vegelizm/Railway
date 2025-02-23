@@ -22,25 +22,18 @@ dp = Dispatcher()
 
 # 📌 Главное меню
 main_menu = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton("📌 Написать напоминание")],
-        [KeyboardButton("Управление напоминаниями")]
-    ],
+    keyboard=[[KeyboardButton("📌 Написать напоминание")], [KeyboardButton("Управление напоминаниями")]],
     resize_keyboard=True
 )
 
 # 📌 Кнопки при получении напоминания
 read_button = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton("✅ Прочитано")]
-    ],
+    keyboard=[[KeyboardButton("✅ Прочитано")]],
     resize_keyboard=True
 )
 
 repeat_menu = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton("Повторять"), KeyboardButton("Меню")]
-    ],
+    keyboard=[[KeyboardButton("Повторять"), KeyboardButton("Меню")]],
     resize_keyboard=True
 )
 
