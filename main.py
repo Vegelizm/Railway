@@ -18,7 +18,6 @@ if not TOKEN:
 
 # 📌 Инициализация бота и диспетчера
 bot = Bot(token=TOKEN)
-bot.set_default_properties(parse_mode=ParseMode.HTML)  # Устанавливаем default properties
 dp = Dispatcher()
 
 # 📌 Главное меню
@@ -98,7 +97,7 @@ async def send_reminders():
             reminders = await cursor.fetchall()
 
             for reminder_id, user_id, message_text, remind_time, repeat in reminders:
-                await bot.send_message(user_id, f"🔔 Напоминание: {message_text}", reply_markup=read_button)
+                await bot.send_message(user_id, f"🔔 Напоминание: {message_text}", reply_markup=read_button, parse_mode=ParseMode.HTML)
 
                 if repeat == 0:
                     await db.execute("UPDATE reminders SET read_status = 1 WHERE id = ?", (reminder_id,))
