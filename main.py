@@ -21,16 +21,24 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
 # 📌 Главное меню
-main_menu = ReplyKeyboardMarkup(resize_keyboard=True)
-main_menu.add(KeyboardButton("📌 Написать напоминание"))
-main_menu.add(KeyboardButton("Управление напоминаниями"))
+main_menu = ReplyKeyboardMarkup(
+    resize_keyboard=True,
+    keyboard=[
+        [KeyboardButton("📌 Написать напоминание")],
+        [KeyboardButton("Управление напоминаниями")]
+    ]
+)
 
 # 📌 Кнопки при получении напоминания
-read_button = ReplyKeyboardMarkup(resize_keyboard=True)
-read_button.add(KeyboardButton("✅ Прочитано"))
+read_button = ReplyKeyboardMarkup(
+    resize_keyboard=True,
+    keyboard=[[KeyboardButton("✅ Прочитано")]]
+)
 
-repeat_menu = ReplyKeyboardMarkup(resize_keyboard=True)
-repeat_menu.add(KeyboardButton("Повторять"), KeyboardButton("Меню"))
+repeat_menu = ReplyKeyboardMarkup(
+    resize_keyboard=True,
+    keyboard=[[KeyboardButton("Повторять"), KeyboardButton("Меню")]]
+)
 
 # 📌 Хранилище временных данных
 user_data = {}
