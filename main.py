@@ -3,7 +3,7 @@ import asyncio
 import os
 from aiogram import Bot, Dispatcher, types
 from aiogram.enums import ParseMode
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, DefaultBotProperties
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from datetime import datetime
 import logging
 
@@ -16,8 +16,9 @@ TOKEN = os.getenv("BOT_TOKEN")
 if not TOKEN:
     raise ValueError("❌ Ошибка: Токен бота не найден! Убедитесь, что BOT_TOKEN задан в переменных окружения.")
 
-# 📌 Инициализация бота и диспетчера с использованием DefaultBotProperties
-bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+# 📌 Инициализация бота и диспетчера
+bot = Bot(token=TOKEN)
+bot.set_default_properties(parse_mode=ParseMode.HTML)  # Устанавливаем default properties
 dp = Dispatcher()
 
 # 📌 Главное меню
